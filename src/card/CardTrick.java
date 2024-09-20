@@ -59,6 +59,11 @@ public class CardTrick {
         }
         
         //Then report the result here
+        if(found){
+            System.out.println("Your card is in the magic hand.");
+        }else{
+            System.out.println("Sorry, your card is not in the magic hand.");
+        }
         // add one luckcard hard code 2,clubs
     }
     
