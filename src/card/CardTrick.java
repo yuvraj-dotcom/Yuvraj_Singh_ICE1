@@ -4,6 +4,8 @@
  */
 package card;
 
+import java.util.Random;
+
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
  * and then asks the user to pick a card and searches the array of cards
@@ -15,12 +17,15 @@ public class CardTrick {
     public static void main(String[] args)
     {
         Card[] magicHand = new Card[7];
+        Random random = new Random();
         
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            c.setValue(random.nextInt(13) + 1);
+            c.setSuit(Card.SUITS[random.nextInt(3)]);
+            magicHand[i] = c;
+            System.out.println(c.getSuit() + " " + c.getValue());
         }
         
         //insert code to ask the user for Card value and suit, create their card
