@@ -5,7 +5,6 @@
 package card;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
