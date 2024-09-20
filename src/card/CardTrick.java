@@ -30,43 +30,24 @@ public class CardTrick {
             magicHand[i] = c;
             System.out.println(c.getSuit() + " " + c.getValue());
         }
-        
-        //insert code to ask the user for Card value and suit, create their card
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a card value (1-13): ");
-        int userValue = scanner.nextInt();
-        scanner.nextLine();
-        if (userValue < 1 || userValue > 13){
-            System.out.println("Invalid input!! Please enter a value between 1 and 13");
-            return;
-        }
-        
-        System.out.print("Enter a suit (0-3 where 0=Hearts, 1=Diamonds, 2=Spades, 3=Clubs): ");
-        int userSuitIndex = scanner.nextInt();
-        scanner.nextLine();
-        String userSuit = Card.SUITS[userSuitIndex];
-        
-        if (userSuitIndex < 0 || userSuitIndex > 3){
-            System.out.println("Invalid input!! Please enter a value between 0 and 3");
-            return;
-        }
-        
-        // and search magicHand here
-        boolean found = false;
+       
+        // add one luckcard hard code 2,clubs
+        Card luckyCard = new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit("Clubs");
+
         for (Card card : magicHand){
-            if (card.getSuit().equals(userSuit) && card.getValue() == userValue){
+            if (card.getSuit().equals(luckyCard.getSuit()) && card.getValue() == luckyCard.getValue()){
                 found = true;
                 break;
             }
         }
-        
-        //Then report the result here
-        if(found){
-            System.out.println("Your card is in the magic hand.");
+
+         if(found){
+            System.out.println("You won!! The lucky card " + luckyCard.getValue + ", " + luckyCard.getSuit + " is in the magic hand.");
         }else{
-            System.out.println("Sorry, your card is not in the magic hand.");
+            System.out.println("You Lost!! Sorry, the lucky card " + luckyCard.getValue + ", " + luckyCard.getSuit + " is not in the magic hand.");
         }
-        // add one luckcard hard code 2,clubs
     }
     
 }
