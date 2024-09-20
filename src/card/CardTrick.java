@@ -40,14 +40,24 @@ public class CardTrick {
         }
         
         System.out.print("Enter a suit (0-3 where 0=Hearts, 1=Diamonds, 2=Spades, 3=Clubs): ");
-        int userSuit = scanner.nextInt();
+        int userSuitIndex = scanner.nextInt();
         scanner.nextLine();
+        String userSuit = Card.SUITS[userSuitIndex];
         
-        if (userSuit < 0 || userSuit > 3){
+        if (userSuitIndex < 0 || userSuitIndex > 3){
             System.out.println("Invalid input!! Please enter a value between 0 and 3");
             return;
         }
+        
         // and search magicHand here
+        boolean found = false;
+        for (Card card : magicHand){
+            if (card.getSuit().equals(userSuit) && card.getValue() == userValue){
+                found = true;
+                break;
+            }
+        }
+        
         //Then report the result here
         // add one luckcard hard code 2,clubs
     }
